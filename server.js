@@ -12,11 +12,7 @@ app.use(express.json());
 
 console.log(database);
 
-// API Routes
-// GET: getting information from the database
-// POST: posting the data to the database
-// PUT: updating 
-// DELETE: deleting
+//This will run the getAll function with the database information, additional code to redirect error. 
 app.get('/api/notes', (req, res) => {
     database.getAll().then(data => {
         res.json(data);
@@ -26,6 +22,7 @@ app.get('/api/notes', (req, res) => {
     })
 })
 
+//Will add a rendomized id to the instances and push that data.
 app.post('/api/notes', (req, res) => {
     const newNote = req.body;
     
